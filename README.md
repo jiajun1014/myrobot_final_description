@@ -77,3 +77,24 @@ step3：安裝ros1 noetic https://emanual.robotis.com/docs/en/platform/turtlebot
 系統設計：
 
 本專題將設計完成的模型透過 ROS 的 cmd_vel 主題進行單向指令傳輸，實現對四輪汽車的控制並利用python創造一個節點來接收前後相機的主題，使汽車往前時可以看到前方景象，往後則看到後面的景象，為了增加停車的安全性，本系統還在倒車的時候利用雷達進行偵測，距離一旦小於0.3公尺，則會自動煞車，以確保停車時的安全性，此外，本機器人還在前方加裝雷達，使它可以偵測到障礙物，進而避開危險，也可以繪製成一張地圖，之後就不怕迷路。
+
+
+操作流程：
+
+終端機1：cd catkin_ws/
+
+終端機1：catkin_make
+
+終端機1：roslaunch myrobot_final_description gazebo.launch
+
+終端機2：rosrun myrobot_final_description camera_switcher.py(實現前進時鏡頭為前鏡頭；反之)
+
+終端機3：rosrun teleop_twist_keyboard teleop_twist_keyboard.py(自行操控機器) 
+
+or 
+
+rosrun myrobot_final_description obstacle_avoidance.py(讓機器自由移動，遇到障礙物會轉彎)
+
+終端機4：rqt(觀察鏡頭變化)
+
+終端機5：rosrun myrobot_final_description back_lidar.py(執行倒車偵測)
