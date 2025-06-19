@@ -1,0 +1,12 @@
+<launch>
+
+<rosparam file="$(find myrobot_final_description)/launch/controller.yaml" command="load"/>
+<node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" ns="myrobot_final" args="Revolute 12_position_controller Revolute 13_position_controller Revolute 14_position_controller Revolute 15_position_controller joint_state_controller "/>
+<node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher" respawn="false" output="screen">
+  <remap from="/joint_states" to="/myrobot_final/joint_states"/>
+</node>
+<node pkg="topic_tools" type="mux" name="image_mux" output="screen">
+    <param name="input_topics" value="['/camera_front/image_raw', '/camera_rear/image_raw']"/>
+    <remap from="mux/selected" to="/camera_active/image_raw"/>
+</node>
+</launch>
