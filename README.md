@@ -1,7 +1,7 @@
 本系統是在Ubuntu Linux 20.04 ros1 noetic執行
 
 💡wsl 安裝教學
-step1：在空的硬碟磁區直接安裝Ubuntu Linux 20.04
+\nstep1：在空的硬碟磁區直接安裝Ubuntu Linux 20.04
 安裝步驟：https://ubuntu.com/tutorials/install-ubuntu-desktop#1-overview
 step2：安裝ros1 noetic https://emanual.robotis.com/docs/en/platform/turtlebot3/quick-start/
 
