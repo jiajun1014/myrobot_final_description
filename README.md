@@ -98,3 +98,9 @@ rosrun myrobot_final_description obstacle_avoidance.py(讓機器自由移動，�
 終端機4：rqt(觀察鏡頭變化)
 
 終端機5：rosrun myrobot_final_description back_lidar.py(執行倒車偵測)
+
+備註：使用wsl的話，需在bashrc裡面加上這兩行，gazebo才能正常模擬。
+
+export LIBGL_ALWAYS_SOFTWARE=1
+
+export LIBGL_ALWAYS_INDIRECT=0
